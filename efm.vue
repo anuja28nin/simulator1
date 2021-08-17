@@ -1,3 +1,4 @@
+
 <template>
 <div>
     
@@ -7,15 +8,15 @@
     <th>
   <b-col id="btn-css" >
    <!-- Butoooooooooooooooooooooooon -->
-   <b-row lg="4" class="pb-2"><b-button  @click="add1" variant="warning" size="lg">pain001</b-button></b-row>
+   <b-row lg="4" class="pb-2"><b-button  @click="add" variant="warning" size="lg">pain001</b-button></b-row>
    <br>
-   <b-row lg="4" class="pb-2"><b-button  @click="add2" variant="warning" size="lg">pacs002</b-button></b-row>
+   <b-row lg="4" class="pb-2"><b-button  @click="add" variant="warning" size="lg">pacs002</b-button></b-row>
    <br>
-   <b-row lg="4" class="pb-2"><b-button  @click="add3" variant="warning" size="lg">pacs004</b-button></b-row>
+   <b-row lg="4" class="pb-2"><b-button  @click="add" variant="warning" size="lg">pacs004</b-button></b-row>
    <br>
-   <b-row lg="4" class="pb-2"><b-button  @click="add4" variant="warning" size="lg">pacs006</b-button></b-row>
+   <b-row lg="4" class="pb-2"><b-button  @click="add" variant="warning" size="lg">pacs006</b-button></b-row>
    <br>
-   <b-row lg="4" class="pb-2"><b-button  @click="add5" variant="warning" size="lg">pacs008</b-button></b-row>
+   <b-row lg="4" class="pb-2"><b-button  @click="add" variant="warning" size="lg">pacs008</b-button></b-row>
    
   
   </b-col>
@@ -30,13 +31,10 @@
    </div>
  <br>
  <br>
-    <div>
-    
-      <b-form-group label="Upload file:" label-cols-sm="2">
-        <b-form-file id="file-default"></b-form-file>
-      </b-form-group>
-    
-    </div>
+
+ <!-- Uploaddddddddddddddd -->
+    <input type="file" ref="myFile" @change="selectedFile"><br/>
+  <!-- <textarea v-model="text"></textarea> -->
  <br>
  <br>
      <b-form-group label="Environment" v-slot="{ ariaDescribedby }">
@@ -57,7 +55,8 @@
   <!-- Texteeeeeeeeeeeeeeeeeeeeeeee -->
   <div class="txtBox_DropBtn">
   <th>
-  <b-form-textarea ref="my-textarea" v-model="text" placeholder="TCS" rows="20" max-rows="5" column="10">
+  <b-form-textarea id="my-textarea" v-model="text" placeholder="TCS" rows="20" max-rows="5" column="10">
+    <text-reader @load="text = $event"></text-reader>
   </b-form-textarea>
 
   <!-- Droooooooooooooooooooooooooooooop -->
@@ -87,7 +86,13 @@
 
 </template>
 
-<script>
+<script>  
+
+
+  import 'viewerjs/dist/viewer.css'
+  import VueViewer from 'v-viewer'
+  import Vue from 'vue'
+  Vue.use(VueViewer)
 
 export default {
   name:'Topa',
@@ -104,85 +109,94 @@ export default {
         ]
       }
     },
+    
   
 
    methods: {
-    add1() {
-      const { text } = this;
-      const textarea = this.$refs["my-textarea"].$el;
-      const index = textarea.selectionStart;
-      const name = "Pain001";                                                                                                                                                                           
-
-      this.text = `${text.substring(0, index)}${name}${text.substring(
-        index
-      )}`;
-      textarea.focus();
-      setTimeout(() => {
-        textarea.selectionStart = index + name.length;
-        textarea.selectionEnd = index + name.length;
-      });
-    },
-    add2() {
-      const { text } = this;
-      const textarea = this.$refs["my-textarea"].$el;
-      const index = textarea.selectionStart;
-      const name = "pac002";
-
-      this.text = `${text.substring(0, index)}${name}${text.substring(
-        index
-      )}`;
-      textarea.focus();
-      setTimeout(() => {
-        textarea.selectionStart = index + name.length;
-        textarea.selectionEnd = index + name.length;
-      });
-    },
-    add3() {
-      const { text } = this;
-      const textarea = this.$refs["my-textarea"].$el;
-      const index = textarea.selectionStart;
-      const name = "pac004";
-      this.text = `${text.substring(0, index)}${name}${text.substring(
-        index
-      )}`;
-      textarea.focus();
-      setTimeout(() => {
-        textarea.selectionStart = index + name.length;
-        textarea.selectionEnd = index + name.length;
-      });
-    },
-    add4() {
-      const { text } = this;
-      const textarea = this.$refs["my-textarea"].$el;
-      const index = textarea.selectionStart;
-      const name = "pac006";
-
-      this.text = `${text.substring(0, index)}${name}${text.substring(
-        index
-      )}`;
-      textarea.focus();
-      setTimeout(() => {
-        textarea.selectionStart = index + name.length;
-        textarea.selectionEnd = index + name.length;
-      });
-    },
-    add5() {
-      const { text } = this;
-      const textarea = this.$refs["my-textarea"].$el;
-      const index = textarea.selectionStart;
-      const name = "pac008";
-
-      this.text = `${text.substring(0, index)}${name}${text.substring(
-        index
-      )}`;
-      textarea.focus();
-      setTimeout(() => {
-        textarea.selectionStart = index + name.length;
-        textarea.selectionEnd = index + name.length;
-      });
+      selectedFile() {
+      console.log('selected a file');
+      console.log(this.$refs.myFile.files[0]);
+      
+      let file = this.$refs.myFile.files[0];
+      if(!file || file.type !== 'text/plain') return;
+      
+      // Credit: https://stackoverflow.com/a/754398/52160
+      let reader = new FileReader();
+      reader.readAsText(file, "UTF-8");
+      reader.onload =  evt => {
+        this.text = evt.target.result;
+      }
+      reader.onerror = evt => {
+        console.error(evt);
+      }
+      
     }
-  }
+    }
+
 }
+
+       
+       //  document.getElementById('my-textarea').innerText =text
+    //  this.file = './../assets/hello.txt';
+    //   const reader = new FileReader();
+    //   if (this.file.name.includes(".txt")) {
+    //     reader.onload = (res) => {
+    //       this.content = res.target.result;
+    //     };
+    //     reader.onerror = (err) => console.log(err);
+    //     reader.readAsText(this.file);
+    //   } else {
+    //     this.content = "check the console for file output";
+    //     reader.onload = (res) => {
+    //       this.text= res.target.result;
+    //     };
+    //     reader.onerror = (err) => console.log(err);
+    //     reader.readAsText(this.file);
+    //   }
+      
+
+       
+ 
+ 
+      
+
+     
+    //  add() {
+    //    let a = document.getElementById("my-textarea");
+    //    console.log(a.value);
+    //  }
+
+    //  add() {
+    //    document.getElementById('my-textarea').innerText =  "helloooo"
+    //    let reader = new FileReader();
+    //    reader.readAsText('./../assets/hello.txt', "UTF-8");
+    //    reader.onload = evt => {
+    //      this.text = evt.target.result;
+    //    }
+    //    reader.onerror = evt => {
+    //      console.error(evt);
+    //    }
+    //  }
+    //  async add(){
+    //    try{
+    //      const response = await fetch('./../assets/hello.txt');
+    //      const data = await response.text();
+         
+    //      document.getElementById('my-textarea').innerText =  data;
+    //    }
+    //    catch(err) {
+    //      console.log(err);
+    //    }
+    //  },
+
+//      add(){
+        
+//       fetch('./../assets/hello.txt').then(response => response.text()).then(data => { console.log(document.getElementById('my-textarea').innerText = data);
+      
+//  });
+       
+//      }
+
 </script>
 
 <style>
