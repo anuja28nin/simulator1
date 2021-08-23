@@ -1,0 +1,137 @@
+<template>
+<div id="app">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <nav>
+	<label for="btn" class="button">Drop down 
+		<span class="fas fa-caret-down"></span>
+	</label>
+	<input type="checkbox" id="btn">
+	<ul class="menu">
+	<li><a href="#">Home</a></li>
+	<li><label for="btn-2" class="first">Features 
+	<span class="fas fa-caret-down" ></span>	
+	</label>
+
+	<input type="checkbox" id="btn-2">
+		<ul><li><a href="#">Pages</a></li></ul>
+	</li>
+	<li>
+	<label for="btn-3" class="second">Services <span class="fas fa-caret-down" ></span></label>
+	<input type="checkbox" id="btn-3">
+	<ul><li><a href="#">Web Design</a></li><li><a href="#">App Design</a></li></ul>
+	</li>
+	<li><a href="#">Contact</a></li>
+	<li><a href="#">FeedBack</a></li>
+    </ul>
+  </nav>
+</div>
+</template>
+
+<script>
+
+export default {
+  name: 'App',
+ 
+   
+}
+</script>
+<style>
+#app{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins',sans-serif;
+}
+nav{
+	position: absolute;
+	top:20%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background: #1b1b1b;
+	width: 400px;
+	line-height: 40px;
+	padding: 8px 25px;
+	border-radius:5px ;
+}
+nav label{
+	color:white;
+	font-size: 22px;
+	font-weight: 500;
+	display:block;
+	cursor: pointer;
+}
+.button span{
+	float: right;
+	line-height: 35px;
+
+}
+nav ul{
+	position: absolute;
+	background: #1b1b1b;
+	list-style: none;
+	top: 75px;
+	left: 0;
+	width: 100%;
+	border-radius:5px ;
+	display: none;
+}
+[id^=btn]:checked + ul{
+	display: block;
+}
+nav .menu::before{
+	position:absolute;
+	content: ' ';
+	height: 20px;
+	width: 20px;
+	background:#1b1b1b;
+	right: 20px;
+	top: -10px;
+	transform: rotate(45deg);
+    z-index: -1;
+}
+nav ul li{
+	line-height: 40px;
+	padding: 8px 20px;
+	cursor: pointer;
+	border-bottom: 1px solid red;
+}
+nav ul li label{
+font-size: 18px;
+}
+nav ul li a{
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	display: block;
+}
+nav ul ul{
+	position: static;
+}
+nav ul ul li{
+	line-height: 30px;
+	padding-left: 30px;
+	border-bottom: none;
+}
+nav ul ul a{
+	color: #e6e6e6;
+	text-decoration: none;
+	font-size:  18px;
+	display: block;
+}
+nav ul ul a:hover,
+nav ul ul label:hover{
+	color: cyan;
+    
+}
+nav ul li span{
+	font-size: 20px;
+	float:right;
+	margin-top:10px;
+	padding: 0 10px;
+
+}
+input{
+	display: none;
+
+}
+</style>
