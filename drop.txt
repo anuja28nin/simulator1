@@ -1,0 +1,218 @@
+<template>
+  <div class="accordion" role="tablist">
+    <b-card no-body class="mb-1">
+      
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-1 variant="info">SWIFT MT</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+          <b-list-group>
+              <b-list-group-item href="#"> link</b-list-group-item>
+              <b-list-group-item href="#">Link </b-list-group-item>
+              <b-list-group-item href="#"> links</b-list-group-item>
+              <b-list-group-item href="#" >link</b-list-group-item>
+          </b-list-group>    
+      </b-collapse>
+    </b-card>
+
+    <b-card no-body class="mb-1">
+      
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-2 variant="info">ISO20022</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-2" visible accordion="my-accordion" role="tabpanel">
+          <b-list-group>
+              <b-list-group-item href="#">link</b-list-group-item>
+              <b-list-group-item href="#">Link </b-list-group-item>
+              <b-list-group-item href="#">links</b-list-group-item>
+              <b-list-group-item href="#" >link</b-list-group-item>
+          </b-list-group>    
+      </b-collapse>
+    </b-card>
+
+    <b-card no-body class="mb-1">
+      
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-3 variant="info" >SEPA</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-3" visible accordion="my-accordion" role="tabpanel">
+          <b-list-group>
+              <b-list-group-item href="#">link</b-list-group-item>
+              <b-list-group-item href="#">Link </b-list-group-item>
+              <b-list-group-item href="#">links</b-list-group-item>
+              <b-list-group-item href="#" >link</b-list-group-item>
+          </b-list-group>    
+      </b-collapse>
+    </b-card>
+
+    <b-card no-body class="mb-1">
+      
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-4 variant="info">CBPR+</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-4" visible accordion="my-accordion" role="tabpanel">
+          <b-list-group>
+              <b-list-group-item href="#">link</b-list-group-item>
+              <b-list-group-item href="#">Link </b-list-group-item>
+              <b-list-group-item href="#">links</b-list-group-item>
+              <b-list-group-item href="#" >link</b-list-group-item>
+          </b-list-group>    
+      </b-collapse>
+    </b-card>
+
+
+
+
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-5 variant="info">TARGET2</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-5" accordion="my-accordion" role="tabpanel">
+        <b-list-group>
+              <b-list-group-item href="#">link</b-list-group-item>
+              <b-list-group-item href="#">Link </b-list-group-item>
+              <b-list-group-item href="#">links</b-list-group-item>
+              <b-list-group-item href="#" >link</b-list-group-item>
+          </b-list-group> 
+      </b-collapse>
+    </b-card>
+
+
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-6 variant="info">TARGET3</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-6" accordion="my-accordion" role="tabpanel">
+        <b-list-group>
+              <b-list-group-item href="#">link</b-list-group-item>
+              <b-list-group-item href="#">Link</b-list-group-item>
+              <b-list-group-item href="#">links </b-list-group-item>
+              <b-list-group-item href="#" >link</b-list-group-item>
+          </b-list-group> 
+      </b-collapse>
+    </b-card>
+
+
+
+    <b-card no-body class="mb-1">
+      <b-card-header header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-7 variant="info">TARGET4</b-button>
+      </b-card-header>
+      <b-collapse id="accordion-7" accordion="my-accordion" role="tabpanel">
+        <b-list-group>
+              <b-list-group-item href="#">link</b-list-group-item>
+              <b-list-group-item href="#">Link</b-list-group-item>
+              <b-list-group-item href="#">links</b-list-group-item>
+              <b-list-group-item href="#" >link</b-list-group-item>
+          </b-list-group> 
+      </b-collapse>
+    </b-card>
+
+  </div>
+</template>
+
+<script>
+  export default {
+    
+  }
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400i,600,700,800&display=swap');
+#app{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+.menu-container{
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button{
+  position: relative;
+  background: #1b1b1b;
+  color: white;
+  font-size: 20px;
+  padding: 8px 20px;
+  width: 150px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: width .4s;
+}
+.button.expand{
+  width: 100%;
+}
+.fas.expand:before{
+  content: '\f00d';
+}
+ul{
+  list-style: none;
+  position: absolute;
+  top: 65px;
+  display: block;
+  background: #1b1b1b;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  display: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+ul:before{
+  position: absolute;
+  content: '';
+  width: 20px;
+  height: 20px;
+  background: #1b1b1b;
+  top: -10px;
+  right: 15px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+ul li{
+  line-height: 35px;
+  padding: 8px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+ul li:last-child{
+  border-bottom: none;
+}
+ul li:hover{
+  box-shadow: inset 0 0 5px #33ffff,
+              inset 0 0 10px #66ffff;
+}
+ul li:hover:first-child{
+  border-radius: 5px 5px 0 0;
+}
+ul li:hover:last-child{
+  border-radius: 0 0 5px 5px;
+}
+ul li a{
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+ul li:hover a{
+  color: cyan;
+}
+</style>
